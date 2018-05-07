@@ -123,13 +123,12 @@ const Menu = ({menu, fetch}) => {
         <section>
             <div className="menu">
                 {menu.map((item, index) => <div key={index}>{item.name}</div>)}
-                <a>название</a>
             </div>
             {
                 menu2.map((item, index) => {
                     return (<div key={index}>
                         {item.list.map((subItem, i) => {
-                            return (<div key={i}><p>Название: {subItem.name}</p><p>Цена: {subItem.price}</p></div>);
+                            return (<div className="text" key={i}><p>{subItem.name}</p><p>Цена: {subItem.price}</p></div>);
                         })}
                     </div>);
                 })
