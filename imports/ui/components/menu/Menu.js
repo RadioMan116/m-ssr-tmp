@@ -1,9 +1,9 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {array, func} from 'prop-types';
-import {callGetMenu} from '../../../api/redux/async-actions';
+import { connect } from 'react-redux';
+import { array, func } from 'prop-types';
+import { callGetMenu } from '../../../api/redux/async-actions';
 
-const Menu = ({menu, fetch}) => {
+const Menu = ({ menu, fetch }) => {
     fetch();
 
     const menu2 = [
@@ -12,68 +12,100 @@ const Menu = ({menu, fetch}) => {
             list: [
                 {
                     name: 'Boscaiola (Боскайола)',
-                    price: '410'
+                    name_2: 'Описание описание',
+                    price: '410',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Primavera (Примавера)',
-                    price: '450'
+                    name_2: 'Описание описание описание',
+                    price: '450',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Soleluna (Солелуна)',
-                    price: '420'
+                    name_2: 'Описание описание описание',
+                    price: '420',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'A modo mio (А модо мио)',
-                    price: '500'
+                    name_2: 'Описание описание описание',
+                    price: '500',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Gustosa (Густоза)',
-                    price: '500'
+                    name_2: 'Описание описание описание',
+                    price: '500',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Vegetariana (Веджетариана)',
-                    price: '350'
+                    name_2: 'Описание описание описание',
+                    price: '350',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Diavola (Дьявола)',
-                    price: '370'
+                    name_2: 'Описание описание описание',
+                    price: '370',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Dolce Verona (Дольче Верона)',
-                    price: '520'
+                    name_2: 'Описание описание описание',
+                    price: '520',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Friulana (Фриулана)',
-                    price: '400'
+                    name_2: 'Описание описание описание',
+                    price: '400',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Bolognese (Болоньезе)',
-                    price: '390'
+                    name_2: 'Описание описание описание',
+                    price: '390',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'La metà (Ла мета)',
-                    price: '450'
+                    name_2: 'Описание описание описание',
+                    price: '450',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Margherita (Маргерита)',
-                    price: '450'
+                    name_2: 'Описание описание описание',
+                    price: '450',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Calabrese (Калабрэзэ)',
-                    price: '350'
+                    name_2: 'Описание описание описание',
+                    price: '350',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Tartufo (Тартуфо)',
-                    price: '450'
+                    name_2: 'Описание описание описание',
+                    price: '450',
+                    price_2: 'Заказать'
                 },
                 {
                     name: '4 formaggi (4 формаджи)',
-                    price: '520'
+                    name_2: 'Описание описание описание',
+                    price: '520',
+                    price_2: 'Заказать'
                 },
                 {
                     name: 'Napoletana (Наполетана)',
-                    price: '750'
-                },
+                    name_2: 'Описание описание описание',
+                    price: '750',
+                    price_2: 'Заказать'
+                }
             ]
         },
         {
@@ -114,7 +146,7 @@ const Menu = ({menu, fetch}) => {
                 {
                     name: 'Con calamari',
                     price: '450'
-                },
+                }
             ]
         }
     ];
@@ -122,18 +154,40 @@ const Menu = ({menu, fetch}) => {
     return (
         <section>
             <div className="menu">
-                {menu.map((item, index) => <div key={index}>{item.name}</div>)}
-            </div>
-            {
-                menu2.map((item, index) => {
-                    return (<div key={index}>
-                        {item.list.map((subItem, i) => {
-                            return (<div className="text" key={i}><p>{subItem.name}</p><p>Цена: {subItem.price}</p></div>);
+                {menu2.map((item, index) => (
+                    <div className="bordertwo" key={index}>
+                        {item.name}
+                    </div>
+                ))}
+                {menu2.map((item, index) => (
+                    <div className="border" key={index}>
+                        {menu2.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    {item.list.map((subItem, i) => {
+                                        return (
+                                            <div className="text" key={i}>
+                                                <p>
+                                                    {subItem.name}
+                                                    <br />
+                                                    {subItem.name_2}.
+                                                </p>
+                                                <p>
+                                                    Цена: {subItem.price}
+                                                    <br />
+                                                    {subItem.price_2}
+                                                </p>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            );
                         })}
-                    </div>);
-                })
-            }
-        </section>);
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
 };
 
 Menu.propTypes = {
@@ -141,6 +195,6 @@ Menu.propTypes = {
     fetch: func.isRequired
 };
 
-const mapStateToProps = state => ({menu: state.menu});
+const mapStateToProps = state => ({ menu: state.menu });
 
-export default connect(mapStateToProps, {fetch: callGetMenu})(Menu);
+export default connect(mapStateToProps, { fetch: callGetMenu })(Menu);
