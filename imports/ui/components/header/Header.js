@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 const Header = () => (
     <header className="header">
@@ -8,9 +8,7 @@ const Header = () => (
                 <div id="header_icon">
                     <span>icon</span>
                 </div>
-                <div className="header_number">
-                    891837791821
-                </div>
+                <div className="header_number">891837791821</div>
             </div>
             <nav className="nav">
                 <a href="">Комбо & 1 обед</a>
